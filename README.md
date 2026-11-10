@@ -9,13 +9,15 @@ FinCon RAG Lab — Yassa Hany
 
 تم تفعيل Groq واختبار التوليد الحي مع PRF وHyDE وMulti-query والإجابة بالعربية مع مراجع المصادر. تقرير التوليد في `reports/groq-live-report.json`، وتقرير البحث والمقارنة ورفع الملفات والـBenchmark في `reports/live-deployment-report.json`.
 
-[افتح Streamlit Community Cloud](https://share.streamlit.io)
+[انشر هذا المستودع على Streamlit](https://share.streamlit.io/deploy?repository=Yassahany2004/fincon-rag-task&branch=main&mainModule=streamlit_app.py)
 
 ![واجهة التطبيق مع إجابة ومصدرها](reports/preview-app.png)
 
 ما الذي تم تنفيذه؟
 -----------------
 
+| المرحلة | المنهج المرجعي | المنهج المستخدم |
+| --- | --- | --- |
 | تقسيم المستندات | Parent/Child بحجم حروف ثابت | Sentence windows بحد 80 كلمة أو فصل حسب التماسك اللفظي |
 | Query expansion | spaCy وقاموس مالي | Pseudo-Relevance Feedback، Rocchio، Multi-query، HyDE |
 | Query routing | لم أجد Router في الكود المرفق | تشابه مع Domain Centroids أو تصويت KNN |
@@ -74,7 +76,7 @@ GROQ_MODEL = "openai/gpt-oss-20b"
 1. افتح https://share.streamlit.io وسجّل بحساب GitHub، وأكمل إنشاء حساب Streamlit.
 2. اربط GitHub وامنح Streamlit وصولًا لهذا الريبو.
 3. اضغط Create app، ثم Yup, I have an app.
-4. اختَر الريبو `Yassahany2004/اسم-المستودع-الجديد` والفرع `main`.
+4. اختَر الريبو `Yassahany2004/fincon-rag-task` والفرع `main`.
 5. Main file path: `streamlit_app.py`.
 6. من Advanced settings اختَر Python 3.12 وأضف إعدادات Groq السابقة في Secrets لتفعيل التوليد.
 7. اضغط Deploy. شارك رابط `streamlit.app` الذي يظهر بعد نجاح التشغيل.
@@ -138,7 +140,15 @@ PDF نصّي، TXT، MD، أو JSON يحتوي `content` أو `text` أو `respo
 
 ```text
 streamlit_app.py
+README.md
+OWNER.md
+UPLOAD_GUIDE_AR.md
+requirements.txt
+requirements-dev.txt
+pytest.ini
+.gitignore
 finrag/
+  __init__.py
   documents.py
   engine.py
   generation.py
@@ -148,11 +158,18 @@ data/
   financial_regulatory_standards_2026.json
   benchmark.json
 reports/
+  browser-report.json
   evaluation-report.json
+  groq-live-report.json
+  live-deployment-report.json
+  preview-app.png
 tests/
+  test_pipeline.py
+  test_streamlit.py
 .streamlit/
   config.toml
   secrets.toml.example
-requirements.txt
-requirements-dev.txt
+.github/
+  workflows/
+    ci.yml
 ```

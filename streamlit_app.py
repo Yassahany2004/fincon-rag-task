@@ -237,4 +237,3 @@ with about_tab:
     st.write("Multi-query and HyDE call Groq when configured. HyDE text is used only for retrieval. It is never passed off as a source. LSA is a corpus-trained linear latent space, not a multilingual pretrained encoder. Arabic support without Groq is a limited finance glossary, not general translation.")
     st.caption("Citation validation checks IDs and paragraph coverage, not whether every generated claim is entailed. No external database, Elasticsearch server, FastAPI service, GPU or model download is required.")
     st.markdown("**Project owner:** [Yassa Hany](https://github.com/Yassahany2004)")
-   ss
